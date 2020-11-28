@@ -41,18 +41,16 @@
     }
 
     //Display letter if it's in the string replacing the className
-   
+
+
     showMatchedLetter(letter) {
-        let liLetter = document.getElementsByClassName("hide letter");
-
-
-
-         for (let i = 0; i < liLetter.length ; i++) {
-            if (liLetter[i].className.charAt(12).includes(letter)) {
-                liLetter[i].className = ("show")
-    }
-   
+        const listOfLetters = document.getElementsByClassName(`hide letter ${letter}`);
+        this.listOfLettersLenght = listOfLetters.length;
+    
+        while (listOfLetters.length) {
+          listOfLetters[0].className = "show";
+        }
+      }
     }
 
-}
- }
+ 
