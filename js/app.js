@@ -10,7 +10,7 @@ let phrase = new Phrase()
 document.getElementById('btn__reset').addEventListener('click', () => {
         game.startGame();
 
-        if ($("#overlay").attr('class') !== 'start') {            
+        if ($("#overlay").attr('class') === 'lose' || 'win') {            
         
             var emptyList =  ()  => {
                 const ul = document.querySelector('#phrase ul');
