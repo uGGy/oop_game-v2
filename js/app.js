@@ -2,15 +2,14 @@
  * Project 4 - OOP Game App
  * app.js */
 
-let game = new Game();
-let phrase = new Phrase()
+let game = null;
+let phrase = null;
 
 //Create game when start buttons is clicked
 
 document.getElementById('btn__reset').addEventListener('click', () => {
-        game.startGame();
 
-        if ($("#overlay").attr('class') === 'lose' || 'win') {            
+      if ($("#overlay").attr('class') === 'lose' || 'win') {            
         
             var emptyList =  ()  => {
                 const ul = document.querySelector('#phrase ul');
@@ -35,19 +34,18 @@ document.getElementById('btn__reset').addEventListener('click', () => {
 
             resetHeart();
             emptyList();
-            $("#overlay").attr('class', 'start')
-            game.missed = 0; 
-            game.startGame();
+            $("#overlay").attr('class', 'start');
             
-            
-             }
+          }
+          game = new Game();
+          phrase = new Phrase();
+          game.startGame();
         
     });
 
 
 $(".key").on('click', function (letter) {
     game.handleInteraction(letter.target);
-    console.log(letter.target);
 });
 
 
